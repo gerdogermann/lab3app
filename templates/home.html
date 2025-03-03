@@ -1,22 +1,60 @@
 <!doctype html>
-<!-- This is a Jinja based template. To read more about Jinja, check
- https://jinja.palletsprojects.com/en/3.0.x/  -->
-<title>Message board</title>
+<title>Gerdo's Fun Message Board 🎉</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        text-align: center;
+    }
+    h4 {
+        color: #ff5733;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        background: #fff3cd;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+    }
+    input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+</style>
 <body>
-    <h4>There are {{ messages|length }} messages on the board.</h4>
+    <h1>Welcome to Gerdo's Message Board 📝</h1>
+    <h4>We have {{ messages|length }} amazing messages here! 🚀</h4>
 
-    <h4> Here are the last 10:</h4>
+    <h4>Check out the latest messages:</h4>
     <ul>
         {% for m in messages[-9:]|reverse %}
             <li>
-                "{{m.content}}" <small>Posted on {{m.timestamp}}</small>
+                <strong>📢 "{{m.content}}"</strong> <br>
+                <small>Posted on {{m.timestamp}} ⏳</small>
             </li>
         {% endfor %}
     </ul>
-    <h4> Enter a new message</h4>
+    
+    <h4>Got something to say? Drop a message below! 💬</h4>
     <form action="/">
-        <label >Your message:</label><br>
-        <input type="text" name="msg"><br>
-        <input type="submit" value="Submit">
+        <label>Your awesome message:</label><br>
+        <input type="text" name="msg" placeholder="Type something fun! 😃"><br>
+        <input type="submit" value="Send It! 🚀">
     </form>
 </body>
